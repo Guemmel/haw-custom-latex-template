@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE LAYOUT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\topskip}{\ht\strutbox} % fixes warning from geometry
+\geometry{a4paper,left=25mm,right=25mm,top=25mm,bottom=35mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRINT MODE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Switch for print mode: \printmodetrue for B/W printing, \printmodefalse for colored links
+\newif\ifprintmode
+\printmodefalse % Default: colored links (set to 'true' for B/W printing)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS AND TEXT STYLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{relsize}
+
+% Improve paragraph and line breaks
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\onehalfspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER AND FOOTER CONFIGURATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+	automark, % Automatically create chapter entries in header
+	headsepline, % Add separation line under header
+	ilines % Left-align separation line
+]{scrlayer-scrpage}
+
+\pagestyle{scrheadings}
+\makeatletter
+\chead{%
+	\large{\textsc{\@title}}\\ 
+	\small{\rightmark}}
+\makeatother
+\ohead{}
+\setlength{\headheight}{15mm} % Höhe der Kopfzeile
+
+% Footer: left, center, right
+\ifoot{\footauthor}
+\cfoot{\today}
+\ofoot{Page \pagemark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADING FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\headingSpace}{1.5cm}
+\renewcommand*{\othersectionlevelsformat}[3]{
+  \makebox[\headingSpace][l]{#3\autodot}
+}
+
+% Indentation requires the tocloft package
+\cftsetindents{section}{0.0cm}{\headingSpace}
+\cftsetindents{subsection}{0.0cm}{\headingSpace}
+\cftsetindents{subsubsection}{0.0cm}{\headingSpace}
+\cftsetindents{figure}{0.0cm}{\headingSpace}
+\cftsetindents{table}{0.0cm}{\headingSpace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Color definitions
+\definecolor{HAW}{HTML}{163b9a}
+\definecolor{haw}{HTML}{003CA0}
+\definecolor{haw2}{HTML}{0096D2}
+\definecolor{haw3}{HTML}{A0BEDC}
+\definecolor{odd}{HTML}{b3b3b3}
+\definecolor{heading}{rgb}{0.64,0.78,0.86}
+
+% Link colors based on print mode
+\ifprintmode
+    % Black links for printing
+    \colorlet{LinkColor}{black}
+\else
+    % Colored links for screen display
+    \colorlet{LinkColor}{haw}
+\fi
+
+% Make Section to LinkColor
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=LinkColor,
+    urlcolor=LinkColor,
+    citecolor=LinkColor,
+    filecolor=LinkColor,
+    pdfborder={0 0 0},
+    pdfborderstyle={/S/U/W 1}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NUMBERING AND COUNTERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\counterwithout{footnote}{section} % Continuously number footnotes
+\setcounter{tocdepth}{3} % Include chapters up to subsubsection level in TOC
+\setcounter{secnumdepth}{3} % Number chapters up to subsubsection level
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENUMERATION FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}

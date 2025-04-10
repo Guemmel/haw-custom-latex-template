@@ -1,0 +1,64 @@
+% !TeX encoding = uft8
+
+\documentclass[11pt, 
+                toc=listof, 
+                toc=bibliography, 
+                footnotes=multiple, 
+                parskip=half, 
+                numbers=noendperiod,
+                ngerman
+            ]{scrartcl}
+\input{common/Packages.tex}
+\input{MetaData.tex}
+\input{common/Format.tex}
+\input{common/Befehle.tex}
+\begin{document}
+
+% Deckblatt
+
+\include{src/Deckblatt_haw}
+\include{src/Abstract}
+
+
+% Inhalsverzeichnisse
+
+\pagenumbering{roman}
+
+
+\begingroup
+\hypersetup{linkcolor=black}
+\tableofcontents
+\clearpage
+
+\listoffigures
+
+
+\listoftables
+\clearpage
+
+% \newcommand{\abkvz}{Abkürzungsverzeichnis}
+% \renewcommand{\nomname}{\abkvz}
+% \section*{\abkvz}
+% \markboth{\abkvz}{\abkvz}
+% \addcontentsline{toc}{section}{\abkvz}
+% \input{common/Abkuerzungen.tex}
+% \clearpage
+
+
+\endgroup
+% Inhalt
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+\section{Test}
+% Use \include to include the different sections
+
+\clearpage
+\nocite{*}
+
+
+% \include{src/Anhang/_Anhang}
+
+\end{document}
