@@ -12,6 +12,10 @@ While formatting requirements may vary, this template serves as a robust foundat
 - Comprehensive bibliography support
 - Todo notes system for document development
 
+### Title page
+
+For the title page, there is a simple standard version available, as well as one that is heavily inspired by the official HAW template. You can choose which one to use.
+
 ## Quick Start
 
 1. Clone this repository
