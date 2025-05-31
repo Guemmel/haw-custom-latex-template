@@ -48,7 +48,7 @@
 % COLORS AND TABLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{colortbl}
 \usepackage{float}
 \restylefloat{table}
@@ -57,6 +57,9 @@
 % LAYOUT AND GEOMETRY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
 \usepackage{geometry}
 \usepackage[titles]{tocloft} % Table of contents
 
@@ -64,7 +67,8 @@
 % FIGURES AND GRAPHICS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{graphicx}
+\usepackage{tikz}
+% \usepackage{graphicx}
 \usepackage{graphics}
 \usepackage{adjustbox}
 \usepackage{circuitikz}
