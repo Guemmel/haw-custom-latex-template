@@ -49,8 +49,8 @@
 
 % Footer: left, center, right
 \ifoot{\footauthor}
-\cfoot{\today}
-\ofoot{Page \pagemark}
+\cfoot{\abgabetermin}
+\ofoot{Seite \pagemark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADING FORMATTING
@@ -60,6 +60,12 @@
 \renewcommand*{\othersectionlevelsformat}[3]{
   \makebox[\headingSpace][l]{#3\autodot}
 }
+
+% Color all section headings with HAW color
+\addtokomafont{section}{\color{haw}}
+\addtokomafont{subsection}{\color{haw}}
+\addtokomafont{subsubsection}{\color{haw}}
+
 
 % Indentation requires the tocloft package
 \cftsetindents{section}{0.0cm}{\headingSpace}
@@ -100,12 +106,6 @@
     pdfborder={0 0 0},
     pdfborderstyle={/S/U/W 1}
 }
-
-
-\theoremstyle{definition}
-
-\declaretheorem[style=hawbox, name=Hinweis]{Remark}
-\declaretheorem[style=thmgreenbox, name=Definition]{definition}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

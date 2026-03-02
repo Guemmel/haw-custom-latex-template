@@ -89,7 +89,7 @@
 % THEOREM COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{haw!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{haw}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -105,6 +105,12 @@
         linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
     }
 ]{thmgreenbox}
+
+\theoremstyle{definition}
+
+% Declare the theorem environments
+\declaretheorem[style=hawbox, name=Hinweis]{Bericht}
+\declaretheorem[style=thmgreenbox, name=Bericht]{Remark}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
